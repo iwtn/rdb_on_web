@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_04_152658) do
+ActiveRecord::Schema.define(version: 2018_11_04_153001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,18 @@ ActiveRecord::Schema.define(version: 2018_11_04_152658) do
     t.index ["relation_id"], name: "index_tuples_on_relation_id"
   end
 
+  create_table "values", force: :cascade do |t|
+    t.bigint "attribute_id"
+    t.bigint "tuple_id"
+    t.string "val"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attribute_id"], name: "index_values_on_attribute_id"
+    t.index ["tuple_id"], name: "index_values_on_tuple_id"
+  end
+
   add_foreign_key "attributes", "relations"
   add_foreign_key "tuples", "relations"
+  add_foreign_key "values", "attributes"
+  add_foreign_key "values", "tuples"
 end
