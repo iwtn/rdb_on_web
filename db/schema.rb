@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_04_153001) do
+ActiveRecord::Schema.define(version: 2018_11_05_113933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attributes", force: :cascade do |t|
+  create_table "attrs", force: :cascade do |t|
     t.bigint "relation_id"
     t.string "name"
     t.string "attr_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["relation_id"], name: "index_attributes_on_relation_id"
+    t.index ["relation_id"], name: "index_attrs_on_relation_id"
   end
 
   create_table "relations", force: :cascade do |t|
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 2018_11_04_153001) do
     t.index ["tuple_id"], name: "index_values_on_tuple_id"
   end
 
-  add_foreign_key "attributes", "relations"
+  add_foreign_key "attrs", "relations"
   add_foreign_key "tuples", "relations"
-  add_foreign_key "values", "attributes"
+  add_foreign_key "values", "attrs", column: "attribute_id"
   add_foreign_key "values", "tuples"
 end

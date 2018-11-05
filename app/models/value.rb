@@ -1,4 +1,4 @@
 class Value < ApplicationRecord
-  belongs_to :attribute
+  belongs_to :attr
   belongs_to :tuple
 end
