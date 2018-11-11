@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  resources :relations
+  resources :relations do
+    resources :attrs
+  end
 end
