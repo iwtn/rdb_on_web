@@ -12,6 +12,8 @@
   <tbody>
     <% @attrs.each do |attr| %>
       <tr>
+        <td><%= attr.name %></td>
+        <td><%= attr.attr_type %></td>
         <td><%= link_to 'Show', relation_attrs_path(id: attr.id) %></td>
         <td><%= link_to 'Edit', edit_relation_attr_path(id: attr.id) %></td>
         <td><%= link_to 'Destroy', relation_attr_path(id: attr.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
