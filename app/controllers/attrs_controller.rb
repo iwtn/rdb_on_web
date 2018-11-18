@@ -46,7 +46,7 @@ class AttrsController < ApplicationController
   def update
     respond_to do |format|
       if @attr.update(attr_params)
-        format.html { redirect_to @attr, notice: 'Attr was successfully updated.' }
+        format.html { redirect_to relation_attr_path, notice: 'Attr was successfully updated.' }
         format.json { render :show, status: :ok, location: @attr }
       else
         format.html { render :edit }
