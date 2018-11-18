@@ -1,4 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @attr.name %></h1>
+<p><%= @attr.attr_type %></p>
+
 <%= link_to 'Edit', edit_relation_attr_path(id: @attr.id) %> |
 <%= link_to 'Back', relation_attrs_path %>
