@@ -1,32 +1,24 @@
 class AttrsController < ApplicationController
   before_action :set_attr, only: [:show, :edit, :update, :destroy]
 
-  # GET /attrs
-  # GET /attrs.json
   def index
     @relation = Relation.find(params[:relation_id])
     @attrs = @relation.attrs
   end
 
-  # GET /attrs/1
-  # GET /attrs/1.json
   def show
     @relation = Relation.find(params[:relation_id])
   end
 
-  # GET /attrs/new
   def new
     @relation = Relation.find(params[:relation_id])
     @attr = Attr.new(relation: @relation)
   end
 
-  # GET /attrs/1/edit
   def edit
     @relation = Relation.find(params[:relation_id])
   end
 
-  # POST /attrs
-  # POST /attrs.json
   def create
     @attr = Attr.new(attr_params)
 
@@ -41,8 +33,6 @@ class AttrsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /attrs/1
-  # PATCH/PUT /attrs/1.json
   def update
     respond_to do |format|
       if @attr.update(attr_params)
@@ -55,8 +45,6 @@ class AttrsController < ApplicationController
     end
   end
 
-  # DELETE /attrs/1
-  # DELETE /attrs/1.json
   def destroy
     @attr.destroy
     respond_to do |format|
